@@ -4,4 +4,5 @@
 .settings/
 fota
 logs
-deviceregistry.json
+*.json
+
