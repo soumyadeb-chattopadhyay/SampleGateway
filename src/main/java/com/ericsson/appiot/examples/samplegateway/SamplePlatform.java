@@ -33,7 +33,7 @@ public class SamplePlatform implements Platform {
 	 * @param measurementsSent
 	 *            - A list of measurements with acknowledge parameter set.
 	 */
-	public void acknowledgeMeasurementsSent(List<ISensorMeasurement> arg0) {
+	public void acknowledgeMeasurementsSent(List<ISensorMeasurement> measurementsSent) {
 		logger.log(Level.INFO, "called");
 	}
 
@@ -44,7 +44,7 @@ public class SamplePlatform implements Platform {
 	 *            the wifi setting to add.
 	 * @return NetworkSettingResponseCode
 	 */
-	public NetworkSettingResponseCode addNetworkSetting(NetworkSetting arg0) {
+	public NetworkSettingResponseCode addNetworkSetting(NetworkSetting networkSetting) {
 		logger.log(Level.INFO, "called");
 		return NetworkSettingResponseCode.OK;
 	}
@@ -56,7 +56,7 @@ public class SamplePlatform implements Platform {
 	 *            - If true, ignore errors.
 	 * @return DataCollectorDeleteResponseCode
 	 */
-	public DataCollectorDeleteResponseCode deleteDataCollector(boolean arg0) {
+	public DataCollectorDeleteResponseCode deleteDataCollector(boolean forceDelete) {
 		logger.log(Level.INFO, "called");
 		return DataCollectorDeleteResponseCode.OK;
 	}
@@ -86,7 +86,7 @@ public class SamplePlatform implements Platform {
 	 * @throws PlatformInitialisationException
 	 *             - Indicates platform initialization failure.
 	 */
-	public void init(SensationClient arg0) throws PlatformInitialisationException {
+	public void init(SensationClient client) throws PlatformInitialisationException {
 		logger.log(Level.INFO, "called");
 	}
 
@@ -110,7 +110,7 @@ public class SamplePlatform implements Platform {
 	 * @see DiscoveredSensorCollection.
 	 * @see SensationClient.reportDicoveredSensorCollection().
 	 */
-	public void reportDiscoveredSensorCollections(String arg0) {
+	public void reportDiscoveredSensorCollections(String correlationId) {
 		logger.log(Level.INFO, "called");
 	}
 
@@ -135,7 +135,7 @@ public class SamplePlatform implements Platform {
 	 * @return SensorCollectionRegistrationResponseCode
 	 */
 	public SensorCollectionRegistrationResponseCode sensorCollectionRegistrationCreated(
-			SensorCollectionRegistration arg0) {
+			SensorCollectionRegistration registration) {
 		logger.log(Level.INFO, "called");
 		return SensorCollectionRegistrationResponseCode.ADD_OK;
 	}
@@ -152,7 +152,7 @@ public class SamplePlatform implements Platform {
 	 * @return SensorCollectionRegistrationResponseCode - Indicating
 	 */
 	public SensorCollectionRegistrationResponseCode sensorCollectionRegistrationDeleted(
-			SensorCollectionRegistration arg0) {
+			SensorCollectionRegistration registration) {
 		logger.log(Level.INFO, "called");
 		return SensorCollectionRegistrationResponseCode.DELETE_OK;
 	}
@@ -169,7 +169,7 @@ public class SamplePlatform implements Platform {
 	 * @return SensorCollectionRegistrationResponseCode - Indicating
 	 */
 	public SensorCollectionRegistrationResponseCode sensorCollectionRegistrationUpdated(
-			SensorCollectionRegistration arg0) {
+			SensorCollectionRegistration registration) {
 		logger.log(Level.INFO, "called");
 		return SensorCollectionRegistrationResponseCode.ADD_OK;
 	}
@@ -184,7 +184,7 @@ public class SamplePlatform implements Platform {
 	 * @see UpdatePackage
 	 * @see UpdatePackageResponseCode
 	 */
-	public UpdatePackageResponseCode updateApplication(UpdatePackage arg0) {
+	public UpdatePackageResponseCode updateApplication(UpdatePackage updatePackage) {
 		logger.log(Level.INFO, "called");
 		return UpdatePackageResponseCode.OK;
 	}
@@ -195,7 +195,7 @@ public class SamplePlatform implements Platform {
 	 * @param properties
 	 * 			@see {@link SensationClientProperties}
 	 */
-	public void updateDataCollectorSettings(SensationClientProperties arg0) {
+	public void updateDataCollectorSettings(SensationClientProperties properties) {
 		logger.log(Level.INFO, "called");
 	}
 
@@ -226,7 +226,7 @@ public class SamplePlatform implements Platform {
 	 * @see UpdatePackageResponseCode
 	 */
 
-	public UpdatePackageResponseCode updateSensorCollection(SensorCollectionRegistration arg0, UpdatePackage arg1) {
+	public UpdatePackageResponseCode updateSensorCollection(SensorCollectionRegistration registration, UpdatePackage updatePackage) {
 		logger.log(Level.INFO, "called");
 		return UpdatePackageResponseCode.OK;
 	}
@@ -241,7 +241,7 @@ public class SamplePlatform implements Platform {
 	 * @return The updated SensorCollectionRegistration.
 	 * @see SensorCollectionRegistration
 	 */
-	public SensorCollectionRegistration updateSensorCollectionStatus(SensorCollectionRegistration arg0) {
+	public SensorCollectionRegistration updateSensorCollectionStatus(SensorCollectionRegistration regisration) {
 		logger.log(Level.INFO, "called");
 		return null;
 	}
@@ -256,7 +256,7 @@ public class SamplePlatform implements Platform {
 	 * @see UpdatePackage
 	 * @see UpdatePackageResponseCode
 	 */
-	public UpdatePackageResponseCode updateSystem(UpdatePackage arg0) {
+	public UpdatePackageResponseCode updateSystem(UpdatePackage updatePackage) {
 		logger.log(Level.INFO, "called");
 		return UpdatePackageResponseCode.OK;
 	}
